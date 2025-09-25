@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Amélie - Semi Jóias</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#sobre-nos">Sobre Nós</a></li>
+      </ul>
+    </nav>
+    <div class="logo-area">
+      <img src="./img/logo-amelie.png" alt="Logo Loja Amélie" class="logo">
+    </div>
+    <div class="menu-icons">
+      <a href="#" class="icone" id="criarContaBtn">
+        <span>💎</span>
+        <span class="icon-text">Criar conta</span>
+      </a>
+      <a href="#" class="icone" id="carrinhoBtn">
+        <span>🛒</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </header>
+
+  <div id="cart-sidebar" class="sidebar" style="right:-600px;">
+    <div class="sidebar-content">
+      <a href="javascript:void(0)" class="close-btn" id="fecharCarrinho">&times;</a>
+      <h2>Meu Carrinho</h2>
+      <div class="cart-items">
+        <p>Seu carrinho está pronto para a finalização.</p>
+      </div>
+      <button class="checkout-btn">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <section class="banner-wrapper">
+    <button class="banner-btn" id="prevBanner">&#8592;</button>
+    <div class="banner" id="banner">
+      <img src="./img/3.png" alt="Frete Grátis" class="banner-img">
+      <img src="./img/2.png" alt="Promoção" class="banner-img">
+      <img src="./img/1.png" alt="Destaque da Loja" class="banner-img">
+    </div>
+    <button class="banner-btn" id="nextBanner">&#8594;</button>
+  </section>
+
+  <section class="filtros">
+    <button onclick="filtrarProdutos('todos')">Todos</button>
+    <button onclick="filtrarProdutos('aneis')">Anéis</button>
+    <button onclick="filtrarProdutos('colares')">Colares</button>
+    <button onclick="filtrarProdutos('pulseiras')">Pulseiras</button>
+    <button onclick="filtrarProdutos('brincos')">Brincos</button>
+  </section>
+
+  <main>
+    <section class="galeria" id="galeria">
+
+  
+      <!-- Produtos (exemplos) -->
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/curvas da lua.jpg" alt="Kit Anel Curvas da Lua">
+        <h3>Kit Anel Curvas da Lua</h3>
+        <p>R$69,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/curvas de sol.jpg" alt="Kit Anel Curvas do Sol">
+        <h3>Kit Anel Curvas do Sol</h3>
+        <p>R$69,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="colares">
+        <img src="./img/amor vivo.jpg" alt="Colar Amor Vivo">
+        <h3>Colar Amor Vivo</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="colares">
+        <img src="./img/Raio Doce.jpg" alt="Colar Raio Doce">
+        <h3>Colar Raio Doce</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="colares">
+        <img src="./img/serena.jpg" alt="Colar Serena">
+        <h3>Colar Serena</h3>
+        <p>R$59,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="colares">
+        <img src="./img/trio lunar.jpg" alt="Trio Lunar">
+        <h3>Colar Trio Lunar</h3>
+        <p>R$79,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="colares">
+        <img src="./img/tripla dourada.jpg" alt="Tripla Dourada">
+        <h3>Colar Tripla Dourada</h3>
+        <p>R$69,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="pulseiras">
+        <img src="./img/ponto de luz.jpg" alt="Ponto de Luz">
+        <h3>Pulseira Ponto de Luz</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="pulseiras">
+        <img src="./img/fio de ouro.jpg" alt="Fio de Ouro">
+        <h3>Pulseira Fio de Ouro</h3>
+        <p>R$49,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="pulseiras">
+        <img src="./img/fio de prata.jpg" alt="Fio de Prata">
+        <h3>Pulseira Fio de Prata</h3>
+        <p>R$49,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/laço de prata.jpg" alt="Laço de Prata">
+        <h3>Brinco Laço de Prata</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/laço dourado.jpg" alt="Laço Dourado">
+        <h3>Brinco Laço Dourado</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/ouro do amor.jpg" alt="Ouro do Amor">
+        <h3>Brinco Ouro do Amor</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/prata do amor.jpg" alt="Prata do Amor">
+        <h3>Brinco Prata do Amor</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/anel dourado floral.jpg" alt="Dourado Floral">
+        <h3>Anel Dourado Floral</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div> 
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/anel dourado galho encatado.jpg" alt="galho encatado">
+        <h3>Anel Dourado Galho Encatado</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/anel dourado laço de luz.jpg" alt="Laço de Luz">
+        <h3>Anel Dourado Laço de Luz</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/anel dourado noite estrelada.jpg" alt="Noite Estrelada">
+        <h3>Anel Dourado Noite Estrelada</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/anel prata constelação azul.jpg" alt="constelação azul">
+        <h3>Anel Prata Constelação azul</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/anel prata de coração.jpg" alt="Prata de Coração">
+        <h3>Anel Prata de Coração</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="aneis">
+        <img src="./img/anel prata luz serena.jpg" alt="Prata Luz Serena">
+        <h3>Anel Prata Luz Serena</h3>
+        <p>R$29,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/brinco dourado asas douradas.jpg" alt="Asas Douradas">
+        <h3>Brinco Dourado Asas Douradas</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/brinco dourado flor do campo.jpg" alt="Flor do Campo">
+        <h3>Brinco Dourado Flor do Campo</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/brinco dourado nó da eternidade.jpg" alt="Nó da Eternidade">
+        <h3>Brinco Dourado Nó da Eternidade</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/brinco prata gota minimalista.jpg" alt="Gota Minimalista">
+        <h3>Brinco Prata Gota Minimalista</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="brincos">
+        <img src="./img/brinco prata gotas de luz.jpg" alt="Gotas de Luz">
+        <h3>Brinco Prata Gotas de Luz</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="produto" data-categoria="colares">
+        <img src="./img/colar dourado camadas de sol.jpg" alt="Camadas de Sol">
+        <h3>Colar Dourado Camadas de Sol</h3>
+        <p>R$39,90</p>
+        <button class="add-to-cart">Adicionar ao carrinho</button>
+      </div>
+
+    <div class="produto" data-categoria="colares">
+    <img src="./img/colar prata encanto das estrelas.jpg" alt="Encanto das Estrelas">
+    <h3>Colar Prata Encanto das Estrelas</h3>
+    <p>R$39,90</p>
+    <button class="add-to-cart">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="produto" data-categoria="colares">
+      <img src="./img/colar prata medalha radiante.jpg" alt="Medalha Radiante">
+      <h3>Colar Prata Medalha Radiante</h3>
+      <p>R$39,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="colares">
+      <img src="./img/colar prata ondas serenas.jpg" alt="Ondas Serenas">
+      <h3>Colar Prata Ondas Serenas</h3>
+      <p>R$39,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="colares">
+      <img src="./img/colar prata gota de esmeralda.jpg" alt="Gotas de Esmeralda">
+      <h3>Colar Prateado Gota de Esmeralda</h3>
+      <p>R$39,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="aneis">
+      <img src="./img/eterna união.jpg" alt="Eterna União">
+      <h3>Anel Prata Eterna União</h3>
+      <p>R$39,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="pulseiras">
+      <img src="./img/pulseira borboleta imperial.jpg" alt="Borboleta Imperial">
+      <h3>Pulseira Borboleta Imperial</h3>
+      <p>R$29,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="pulseiras">
+      <img src="./img/pulseira dourada alvorada.jpg" alt="Dourada Alvorada">
+      <h3>Pulseira Dourada Alvorada</h3>
+      <p>R$29,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="pulseiras">
+      <img src="./img/pulseira dourada borboleta obisidiana.jpg" alt="Borboleta obisidiana">
+      <h3>Pulseira Dourada Borboleta Obisidiana</h3>
+      <p>R$29,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="pulseiras">
+      <img src="./img/pulseira galhos cristalizados.jpg" alt="Galhos Cristalizados">
+      <h3>Pulseira Galhos Cristalizados</h3>
+      <p>R$29,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto" data-categoria="pulseiras">
+    <img src="./img/pulseira prata diamante aurora.jpg" alt="Diamante Aurora">
+    <h3>Pulseira Prata Diamante Aurora</h3>
+    <p>R$29,90</p>
+    <button class="add-to-cart">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="produto" data-categoria="pulseiras">
+      <img src="./img/pulseira prata trevo de onyx.jpg" alt="Trevo de Onyx">
+      <h3>Pulseira Prata Trevo de Onyx</h3>
+      <p>R$29,90</p>
+      <button class="add-to-cart">Adicionar ao carrinho</button>
+    </div>
+
+    </section>
+  </main>
+
+  <!-- Seção Sobre Nós -->
+  <section class="sobre-nos" id="sobre-nos">
+    <h2>Sobre Nós</h2>
+    <p>
+     Somos Julia Pires, Ana Luiza Lopes, Maria Eduarda Ferreira e Maria Eduarda Silva,
+     fundadoras de uma marca dedicada a semijoias de qualidade, elegância e sofisticação.
+     Nosso propósito é oferecer peças atemporais que valorizam a beleza e acompanham cada momento com estilo e confiança.
+    </p>
+  </section>
+
+  <!-- Seção Contato -->
+  <section class="contato" id="contato">
+    <h2>Contato</h2>
+    <form>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <!-- Modal Criar Conta -->
+  <div class="modal" id="modalConta" style="display: block;">
+    <div class="modal-conteudo">
+      <span class="fechar" id="fecharModal">&times;</span>
+      <h2>Criar Conta</h2>
+      <form>
+        <input type="text" placeholder="Nome completo" required>
+        <input type="email" placeholder="E-mail" required>
+        <input type="password" placeholder="Senha" required>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Loja Amélie. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Banner Carrossel
+      const imgs = document.querySelectorAll('.banner-img');
+      let idx = 0;
+      function showBanner(index) {
+        imgs.forEach((img, i) => {
+          img.style.display = i === index ? 'block' : 'none';
+        });
+      }
+      document.getElementById('prevBanner').addEventListener('click', () => {
+        idx = (idx === 0) ? imgs.length - 1 : idx - 1;
+        showBanner(idx);
+      });
+      document.getElementById('nextBanner').addEventListener('click', () => {
+        idx = (idx + 1) % imgs.length;
+        showBanner(idx);
+      });
+      showBanner(0);
+
+      // Filtro de Produtos (exposto globalmente para os botões inline)
+      window.filtrarProdutos = function(cat) {
+        const cards = document.querySelectorAll('.produto');
+        cards.forEach(card => {
+          card.style.display = (cat === 'todos' || card.dataset.categoria === cat) ? 'flex' : 'none';
+        });
+      }
+
+      // Carrinho
+      let carrinho = [];
+      const cartSidebar = document.getElementById('cart-sidebar');
+      const cartItemsContainer = document.querySelector('.cart-items');
+      const cartCountEl = document.getElementById('cartCount');
+      const carrinhoBtn = document.getElementById('carrinhoBtn');
+      const fecharCarrinhoBtn = document.getElementById('fecharCarrinho');
+      const checkoutBtn = document.querySelector('.checkout-btn');
+
+      function parsePrice(text) {
+        if (!text) return 0;
+        const num = text.replace(/[^\d,\.]/g, '').replace(',', '.');
+        return parseFloat(num) || 0;
+      }
+
+      function atualizarCarrinho() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        if (carrinho.length === 0) {
+          cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+          cartCountEl.textContent = '0';
+          return;
+        }
+
+        carrinho.forEach((item, index) => {
+          total += item.preco * item.quantidade;
+
+          const novoItem = document.createElement('div');
+          novoItem.classList.add('cart-item');
+          novoItem.innerHTML = `
+            <button class="remover" data-index="${index}" aria-label="Remover item">✖</button>
+            <img src="${item.imagem}" alt="${item.nome}" class="cart-item-img">
+            <div class="cart-item-info">
+              <p class="cart-item-nome">${item.nome}</p>
+              <p class="cart-item-preco">R$ ${item.preco.toFixed(2).replace('.',',')}</p>
+              <div class="cart-item-qtd">
+                <button class="qtd-btn" data-action="minus" data-index="${index}">-</button>
+                <span class="qtd">${item.quantidade}</span>
+                <button class="qtd-btn" data-action="plus" data-index="${index}">+</button>
+              </div>
+            </div>
+            
+          `;
+
+          cartItemsContainer.appendChild(novoItem);
+        });
+
+        const totalDiv = document.createElement('div');
+        totalDiv.classList.add('cart-total');
+        totalDiv.innerHTML = `<h3>Total: R$ ${total.toFixed(2).replace('.',',')}</h3>`;
+        cartItemsContainer.appendChild(totalDiv);
+
+        // Atualiza contador (soma de quantidades)
+        cartCountEl.textContent = carrinho.reduce((s, i) => s + i.quantidade, 0);
+      }
+
+      function abrirCarrinho() { cartSidebar.style.right = '0'; }
+      function fecharCarrinho() { cartSidebar.style.right = '-600px'; }
+
+      function adicionarAoCarrinho(produtoImg, produtoNome, produtoPreco) {
+        const precoNum = (typeof produtoPreco === 'number') ? produtoPreco : parsePrice(produtoPreco);
+        const produtoExistente = carrinho.find(item => item.nome.trim() === produtoNome.trim());
+
+        if (produtoExistente) {
+          produtoExistente.quantidade++;
+        } else {
+          carrinho.push({
+            imagem: produtoImg,
+            nome: produtoNome,
+            preco: precoNum,
+            quantidade: 1
+          });
+        }
+
+        atualizarCarrinho();
+        abrirCarrinho();
+      }
+
+      // Botões "Adicionar ao carrinho"
+      document.querySelectorAll('.produto .add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          const produto = this.closest('.produto');
+          const produtoImg = produto.querySelector('img').src;
+          const produtoNome = produto.querySelector('h3').textContent.trim();
+          const produtoPreco = produto.querySelector('p').textContent.trim();
+
+          adicionarAoCarrinho(produtoImg, produtoNome, produtoPreco);
+        });
+      });
+
+      // Delegação de eventos dentro do container do carrinho (remover / alterar quantidade)
+      cartItemsContainer.addEventListener('click', function(event) {
+        const target = event.target;
+
+        if (target.matches('.remover')) {
+          const index = parseInt(target.dataset.index, 10);
+          carrinho.splice(index, 1);
+          atualizarCarrinho();
+          return;
+        }
+
+        if (target.matches('.qtd-btn')) {
+          const index = parseInt(target.dataset.index, 10);
+          const action = target.dataset.action;
+          const item = carrinho[index];
+          if (!item) return;
+          if (action === 'plus') item.quantidade++;
+          if (action === 'minus') item.quantidade = Math.max(1, item.quantidade - 1);
+          atualizarCarrinho();
+        }
+      });
+
+      // Abre o carrinho ao clicar no ícone
+      carrinhoBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        abrirCarrinho();
+      });
+
+      // Fecha o carrinho ao clicar no X
+      fecharCarrinhoBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        fecharCarrinho();
+      });
+
+      // Fecha o carrinho ao clicar fora (não fecha se o clique for em produto, botão ou modal)
+      document.addEventListener('click', function(e) {
+        const clickDentroDoCart = cartSidebar.contains(e.target);
+        const clickEmProduto = e.target.closest('.produto');
+        const clickNoIconCart = e.target.closest('#carrinhoBtn');
+        const clickNoModal = e.target.closest('#modalConta');
+
+        if (!clickDentroDoCart && !clickEmProduto && !clickNoIconCart && !clickNoModal) {
+          if (cartSidebar.style.right === '0px') {
+            fecharCarrinho();
+          }
+        }
+      });
+
+      // Finalizar compra (simulação)
+      checkoutBtn.addEventListener('click', function() {
+        if (carrinho.length === 0) {
+          alert('Seu carrinho está vazio!');
+          return;
+        }
+
+        const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
+        alert(`Compra finalizada com sucesso! Total: R$ ${total.toFixed(2).replace('.',',')}`);
+        carrinho = [];
+        atualizarCarrinho();
+        fecharCarrinho();
+      });
+
+      // Modal Criar Conta
+      const btnConta = document.getElementById('criarContaBtn');
+      const modalConta = document.getElementById('modalConta');
+      const fecharModal = document.getElementById('fecharModal');
+
+      btnConta.addEventListener('click', function(e) {
+        e.preventDefault();
+        modalConta.style.display = 'block';
+      });
+
+      fecharModal.addEventListener('click', function() {
+        modalConta.style.display = 'none';
+      });
+
+      modalConta.addEventListener('click', function(e) {
+        if (e.target === modalConta) modalConta.style.display = 'none';
+      });
+
+    });
+  </script>
+</body>
+</html>
